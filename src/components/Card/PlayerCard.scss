@@ -1,0 +1,44 @@
+// TODO : set font-size ratio and use rem instead pixels
+
+.player-card{
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  background-color: #e6e6e6;
+  max-width: 367px;
+  border-radius: 20px 0px 0px 20px;
+  margin:10px;
+  .general-row{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .info{
+      padding:10px;
+      
+      .name{
+        font-size: 18px;
+      }
+      .points{
+        margin-top:10px;
+        font-size: 48px;
+      }
+    }
+    .actions{
+      background-color: rgba(255, 255, 255, 0.5);
+      display: flex;
+      flex-wrap: wrap;
+      font-size: 32px;
+      width: 100px;
+      height: 100px;
+      > *{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+      }
+    }
+  }
+
+}
