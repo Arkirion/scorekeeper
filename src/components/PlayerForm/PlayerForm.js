@@ -12,27 +12,18 @@ import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 
 import { HexColorPicker } from "react-colorful";
+
 import "./PlayerForm.scss";
 
-// import { makeStyles } from '@material-ui/core/styles';
+/** TODO: avoid re renderer when i write in the form? */
 
-// const useStyles = makeStyles((theme) => ({
-//   fabButton: {
-//     position: 'absolute',
-//     zIndex: 1,
-//     top: -30,
-//     left: 0,
-//     right: 0,
-//     margin: '0 auto',
-//   },
-// }));
-
-export default function PlayerForm({addPlayer, fabStyle}) {
-  const DEFAULT_PLAYER = { name: "", points: 0, colorpick: "" };
+export default function PlayerForm({addPlayer, classStyle}) {
+  const DEFAULT_COLOR = "#F8A4FF";
+  const DEFAULT_PLAYER = { name: "", points: 0, colorpick: DEFAULT_COLOR };
 
   const [open, setOpen] = useState(false);
   const [player, setPlayer] = useState(DEFAULT_PLAYER);
-  const [colorpick, setColorPick] = useState("#F8A4FF");
+  const [colorpick, setColorPick] = useState(DEFAULT_COLOR);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -46,7 +37,6 @@ export default function PlayerForm({addPlayer, fabStyle}) {
 
   const savePlayer = () => {
     player.points = parseInt(player.points);
-    console.log(player)
     addPlayer(player)
     handleClose();
   };
@@ -61,7 +51,6 @@ export default function PlayerForm({addPlayer, fabStyle}) {
 
   /** this is because the color picker cant handle events, it returns a color */
   const handleColor = (color) => {
-    console.log(color)
     setColorPick(color)
     setPlayer((prevState) => ({
       ...prevState,
@@ -72,10 +61,9 @@ export default function PlayerForm({addPlayer, fabStyle}) {
 
   return (
     <div className="player-form">
-      <Fab className={{fabStyle}} onClick={handleClickOpen} color="secondary" aria-label="add">
+      <Fab className={classStyle.fabButton} onClick={handleClickOpen} color="secondary" aria-label="add">
         <AddIcon />
       </Fab>
-      {/* <div onClick={handleClickOpen}> Add Player</div> */}
       <Dialog
         open={open}
         onClose={handleClose}
