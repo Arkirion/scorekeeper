@@ -93,8 +93,8 @@ function App() {
           <Box textAlign="center" fontWeight="fontWeightBold" mb={2} fontSize="h5.fontSize">
             GAME TITLE
           </Box>
-            {players.map((player) => (
-              <PlayerCard {...player} />
+            {players.map(({name, points, colorpick}) => (
+              <PlayerCard key={name} name={name} currentPoints={points} color={colorpick} />
             ))}
           </div>
         </Container>
