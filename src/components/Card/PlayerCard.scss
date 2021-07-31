@@ -7,15 +7,15 @@
   background-color: #e6e6e6;
   width: 100%;
   border-radius: 20px 0px 0px 20px;
-  margin:10px;
+  margin-bottom: 10px;
   .general-row{
     width: 100%;
     display: flex;
     justify-content: space-between;
     min-width: 308px;
+
     .info{
       padding:10px;
-      
       .name{
         font-size: 18px;
       }
@@ -30,7 +30,7 @@
       font-size: 32px;
       width: 100px;
       height: 100px;
-      > *{
+      > * {
         display:flex;
         justify-content: center;
         align-items: center;

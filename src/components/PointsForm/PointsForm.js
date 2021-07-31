@@ -24,9 +24,9 @@ export default function PointsForm({ sign, setPoints, currentPoints }) {
   };
 
   const handleSum = (value) => {
-    if (sign == OPERATIONS.ADD) {
+    if (sign === OPERATIONS.ADD) {
       setPoints((prevCount) => prevCount + value);
-    } else if (sign == OPERATIONS.SUBSTRACT) {
+    } else if (sign === OPERATIONS.SUBSTRACT) {
       setPoints((prevCount) => prevCount - value);
     }
     handleClose();
@@ -52,9 +52,8 @@ export default function PointsForm({ sign, setPoints, currentPoints }) {
         aria-labelledby="form-dialog-title"
       >
         <DialogTitle id="form-dialog-title">
-          {sign == OPERATIONS.ADD ? "Add" : "Substract"} points
+          {sign === OPERATIONS.ADD ? "Add" : "Substract"} points
         </DialogTitle>
-        {/* {console.log(currentPoints)} */}
         <DialogContent>
           <DialogContentText>
             Current : <strong>{currentPoints} </strong>

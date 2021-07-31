@@ -12,8 +12,7 @@ import MoreIcon from "@material-ui/icons/MoreVert";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from '@material-ui/core/Container';
 
-import Fab from "@material-ui/core/Fab";
-import AddIcon from "@material-ui/icons/Add";
+import Box from '@material-ui/core/Box';
 
 import theme from "../src/theme";
 
@@ -41,7 +40,6 @@ const useStyles = makeStyles((theme) => ({
   fabButton: {
     position: "absolute",
     zIndex: 1,
-    // top: -30,
     bottom: -20,
     left: 0,
     right: 0,
@@ -92,6 +90,9 @@ function App() {
         </AppBar>
         <Container maxWidth="sm">
           <div className={classes.bodyContent}>
+          <Box textAlign="center" fontWeight="fontWeightBold" mb={2} fontSize="h5.fontSize">
+            GAME TITLE
+          </Box>
             {players.map((player) => (
               <PlayerCard {...player} />
             ))}

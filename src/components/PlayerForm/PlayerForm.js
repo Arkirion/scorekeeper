@@ -15,7 +15,7 @@ import { HexColorPicker } from "react-colorful";
 
 import "./PlayerForm.scss";
 
-/** TODO: avoid re renderer when i write in the form? */
+/** TODO: avoid re renderer when i have wrote in the form? */
 
 export default function PlayerForm({addPlayer, classStyle}) {
   const DEFAULT_COLOR = "#F8A4FF";
@@ -49,12 +49,12 @@ export default function PlayerForm({addPlayer, classStyle}) {
     }));
   };
 
-  /** this is because the color picker cant handle events, it returns a color */
+  /** this is because the color picker cant handle events, it returns a hex string color */
   const handleColor = (color) => {
     setColorPick(color)
     setPlayer((prevState) => ({
       ...prevState,
-      ['colorpick']: color,
+      'colorpick': color,
     }));
   };
 
@@ -97,7 +97,6 @@ export default function PlayerForm({addPlayer, classStyle}) {
           />
           
           <DialogContentText> Color </DialogContentText>
-          {/* <HexColorPicker color={color} onChange={setColorPick} onKeyUp={() => alert('ok')}/> */}
           <HexColorPicker color={colorpick} onChange={handleColor}/>
           <DialogContentText style={{ backgroundColor : colorpick}} > &nbsp; </DialogContentText>
         </DialogContent>
